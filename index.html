@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcore AI Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
+  }
+}
+</script>
+<style>
+  :root, html.light {
+    --bg-primary: 243 244 246; /* gray-100 */
+    --bg-secondary: 255 255 255; /* white */
+    --bg-tertiary: 229 231 235; /* gray-200 */
+    --bg-tertiary-hover: 209 213 219; /* gray-300 */
+    --bg-accent-subtle: 239 246 255; /* blue-50 */
+    --border-primary: 229 231 235; /* gray-200 */
+    --border-secondary: 209 213 219; /* gray-300 */
+    --border-accent: 96 165 250; /* blue-400 */
+    --text-primary: 17 24 39; /* gray-900 */
+    --text-secondary: 107 114 128; /* gray-500 */
+    --text-accent: 37 99 235; /* blue-700 */
+    --accent-primary: 59 130 246; /* blue-600 */
+    --accent-secondary: 37 99 235; /* blue-700 */
+    --accent-text: 255 255 255; /* white */
+    --danger: 239 68 68; /* red-500 */
+    --danger-hover: 220 38 38; /* red-600 */
+  }
+  html.dark {
+    --bg-primary: 17 24 39; /* gray-900 */
+    --bg-secondary: 31 41 55; /* gray-800 */
+    --bg-tertiary: 55 65 81; /* gray-700 */
+    --bg-tertiary-hover: 75 85 99; /* gray-600 */
+    --bg-accent-subtle: 30 58 138; /* blue-900/50 - approx */
+    --border-primary: 55 65 81; /* gray-700 */
+    --border-secondary: 75 85 99; /* gray-600 */
+    --border-accent: 59 130 246; /* blue-600 */
+    --text-primary: 249 250 251; /* gray-50 */
+    --text-secondary: 156 163 175; /* gray-400 */
+    --text-accent: 147 197 253; /* blue-300 */
+    --accent-primary: 59 130 246; /* blue-600 */
+    --accent-secondary: 96 165 250; /* blue-500 */
+    --accent-text: 255 255 255; /* white */
+    --danger: 220 38 38; /* red-600 */
+    --danger-hover: 185 28 28; /* red-700 */
+  }
+  html.rose {
+    --bg-primary: 255 241 242; /* rose-50 */
+    --bg-secondary: 255 255 255; /* white */
+    --bg-tertiary: 254 226 226; /* red-200 */
+    --bg-tertiary-hover: 254 202 202; /* red-300 */
+    --bg-accent-subtle: 255 237 241; /* rose-100 */
+    --border-primary: 254 226 226; /* red-200 */
+    --border-secondary: 254 202 202; /* red-300 */
+    --border-accent: 244 63 94; /* rose-500 */
+    --text-primary: 136 25 50; /* rose-900 */
+    --text-secondary: 159 18 57; /* rose-800 */
+    --text-accent: 190 18 60; /* rose-700 */
+    --accent-primary: 225 29 72; /* rose-600 */
+    --accent-secondary: 190 18 60; /* rose-700 */
+    --accent-text: 255 255 255; /* white */
+    --danger: 225 29 72; /* rose-600 */
+    --danger-hover: 190 18 60; /* rose-700 */
+  }
+  html.forest {
+    --bg-primary: 240 253 244; /* green-50 */
+    --bg-secondary: 255 255 255;
+    --bg-tertiary: 220 252 231; /* green-200 */
+    --bg-tertiary-hover: 187 247 208; /* green-300 */
+    --bg-accent-subtle: 220 252 231; /* green-200 */
+    --border-primary: 220 252 231;
+    --border-secondary: 187 247 208; /* green-300 */
+    --border-accent: 34 197 94; /* green-500 */
+    --text-primary: 20 83 45; /* green-900 */
+    --text-secondary: 21 94 52; /* green-800 */
+    --text-accent: 22 101 52; /* green-800 */
+    --accent-primary: 22 163 74; /* green-600 */
+    --accent-secondary: 21 128 61; /* green-700 */
+    --accent-text: 255 255 255;
+    --danger: 239 68 68; /* red-500 */
+    --danger-hover: 220 38 38; /* red-600 */
+  }
+  html.midnight {
+    --bg-primary: 28 25 23; /* stone-900 */
+    --bg-secondary: 41 37 36; /* stone-800 */
+    --bg-tertiary: 68 64 60; /* stone-700 */
+    --bg-tertiary-hover: 87 83 78; /* stone-600 */
+    --bg-accent-subtle: 55 48 163; /* indigo-900 */
+    --border-primary: 68 64 60; /* stone-700 */
+    --border-secondary: 87 83 78; /* stone-600 */
+    --border-accent: 139 92 246; /* violet-500 */
+    --text-primary: 250 250 249; /* stone-50 */
+    --text-secondary: 168 162 158; /* stone-400 */
+    --text-accent: 196 181 253; /* violet-300 */
+    --accent-primary: 139 92 246; /* violet-500 */
+    --accent-secondary: 124 58 237; /* violet-600 */
+    --accent-text: 255 255 255; /* white */
+    --danger: 239 68 68; /* red-500 */
+    --danger-hover: 220 38 38; /* red-600 */
+  }
+</style>
+</head>
+  <body class="bg-[rgb(var(--bg-primary))]">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

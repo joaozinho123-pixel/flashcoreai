@@ -1,0 +1,8 @@
+{
+  "name": "Flashcore AI Chat",
+  "description": "An intelligent chat application with different modes for various tasks, powered by Google Gemini. Engage in conversations for coding help, educational support, daily tasks, and more.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
